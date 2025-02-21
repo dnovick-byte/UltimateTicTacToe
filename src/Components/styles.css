@@ -1,0 +1,134 @@
+@import '../vars.css';
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh; /* Full screen height */
+    width: 100vw; /* Full screen width */
+    overflow: hidden; /* Prevents scrolling */
+    background: var(--color-primary);
+}
+
+.header {
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: .5%;
+    margin-bottom: .5%;
+}
+
+.header img {
+    width: 25%;
+}
+
+.big-board-container {
+    width: 38%;
+    max-width: 38%;
+    aspect-ratio: 1/1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border: 2px solid var(--color-accent);
+}
+
+
+.board {
+    width: 100%;
+    height: 100%;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay-content h2 {
+    color: var(--color-text);
+    background-color: rgba(256, 256, 256, 0.8);
+}
+.overlay button {
+    background-color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.open-overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+  
+  
+
+
+
+.grid-item {
+    width: 100%; /* Ensures the board is square */
+    height: 100%;  
+}
+
+.mini-board {
+    width: 100%; /* Ensures the board is square */
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background: white;
+    aspect-ratio: 1 / 1; /* Keeps each mini-board square */
+    border: 2px solid var(--color-accent);
+    box-sizing: border-box; /* Includes the border in the element’s total size */
+}
+
+
+.square {
+    width: 100%;
+    background-color: var(--color-secondary);
+    border: 1px solid var(--color-accent);
+    cursor: pointer;
+    display: grid;
+    place-items: center; /* Centers horizontally */
+
+}
+.square img {
+    width: 110%;
+}
+
+.winner {
+    width: 100%; /* Ensures the board is square */
+    height: 100%;
+    display: grid;
+    border: 2px solid var(--color-accent);
+    box-sizing: border-box; /* Includes the border in the element’s total size */
+    place-items: center; /* Centers horizontally */
+}
+
+.title {
+    color: var(--color-text);
+}
