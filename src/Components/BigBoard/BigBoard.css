@@ -91,3 +91,21 @@
     to { transform: scale(1); }
 }
 
+.screenshot-btn {
+    background: linear-gradient(45deg, #f6d56e, #ffae42);
+    color: #1e1e1e;
+    border: none;
+    margin: 10px 0px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.screenshot-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
+

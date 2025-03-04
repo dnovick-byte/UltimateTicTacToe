@@ -4,13 +4,17 @@ import Board from '../Board/Board';
 import lion from '../../Assets/lion.png';
 import tiger from '../../Assets/tiger.png';
 
-function BigBoard() {
+function BigBoard({ captureBoard }) {
 
     function reset() {
         setBoards(Array(9).fill(null));
         setWinner(null);
         setResetTrigger(prev => prev + 1);
         setTurn(Math.random() < 0.5);
+    }
+
+    function download() {
+        captureBoard();
     }
 
     function checkWinner(boards) {
@@ -65,6 +69,7 @@ function BigBoard() {
                             className='winner-image'
                         />
                         <button onClick={reset} className='play-again-btn'>Play Again</button>
+                        <button onClick={download} className='screenshot-btn'> Save Screenshot </button>
                     </div>
                 </div>
             )}
