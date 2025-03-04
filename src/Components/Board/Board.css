@@ -1,0 +1,45 @@
+.grid-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Ensures the board is square */
+    height: 100%;  
+}
+
+/* Make the mini-board slightly faded when there's a winner */
+.mini-board.faded {
+    width: 100%; /* Ensures the board is square */
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background: white;
+    aspect-ratio: 1 / 1; /* Keeps each mini-board square */
+    border: 2px solid var(--color-accent);
+    box-sizing: border-box; /* Includes the border in the element’s total size */
+    opacity: .2;
+    z-index: 4;
+}
+.mini-board {
+    width: 100%; /* Ensures the board is square */
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background: white;
+    aspect-ratio: 1 / 1; /* Keeps each mini-board square */
+    border: 2px solid var(--color-accent);
+    box-sizing: border-box; /* Includes the border in the element’s total size */
+}
+
+.winner {
+    display: grid;
+    box-sizing: border-box; /* Includes the border in the element’s total size */
+    place-items: center; /* Centers horizontally */
+    position: absolute;
+    border: 2px solid var(--color-accent);
+    height: 100%;
+    width: 100%;
+
+}

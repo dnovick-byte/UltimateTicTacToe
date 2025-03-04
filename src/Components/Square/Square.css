@@ -1,0 +1,12 @@
+.square {
+    width: 100%;
+    background-color: var(--color-secondary);
+    border: 1px solid var(--color-accent);
+    cursor: pointer;
+    display: grid;
+    place-items: center; /* Centers horizontally */
+
+}
+.square img {
+    width: 110%;
+}
