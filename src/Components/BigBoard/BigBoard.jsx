@@ -4,27 +4,13 @@ import Board from '../Board/Board';
 import lion from '../../Assets/lion.png';
 import tiger from '../../Assets/tiger.png';
 
-
-function BigBoard({ captureBoard }) {
-
-
-
-    const [screenShot, newScreenShot] = useState(false);
+function BigBoard() {
 
     function reset() {
         setBoards(Array(9).fill(null));
         setWinner(null);
         setResetTrigger(prev => prev + 1);
         setTurn(Math.random() < 0.5);
-        newScreenShot(false);
-    }
-
-    function download() {
-        const overlay = document.querySelector(".overlay"); // Get the overlay element
-        if (overlay) overlay.style.display = "none"; // Hide the overlay temporarily
-        newScreenShot(true);
-        captureBoard(); // Capture the board after the slight delay
-        if (overlay) overlay.style.display = "flex";
     }
 
     function checkWinner(boards) {
@@ -70,10 +56,15 @@ function BigBoard({ captureBoard }) {
             {winner && (
                 <div className="overlay">
                     <div className="overlay-content">
-                        <h2>Winner:</h2>
-                        <img src={winner === 'X' ? lion : tiger} alt={winner === 'X' ? 'Lion' : 'Tiger'} className="winner-image" />
-                        <button onClick={reset} className="play-again-btn">Play Again</button>
-                        <button onClick={download}> Save Screenshot </button>
+                        <h2> 
+                            Winner:
+                        </h2>
+                        <img 
+                            src={(winner === 'X'? lion: tiger)} 
+                            alt= {(winner === 'X'? 'Lion': 'Tiger')}
+                            className='winner-image'
+                        />
+                        <button onClick={reset} className='play-again-btn'>Play Again</button>
                     </div>
                 </div>
             )}
@@ -87,7 +78,6 @@ function BigBoard({ captureBoard }) {
                         shouldReset={resetTrigger}
                         turn={turn}
                         flipTurn={flipTurn}
-                        screenShot = {screenShot}
                     />
                 </div>
             ))}

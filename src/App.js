@@ -1,6 +1,6 @@
 import './App.css';
-import BigBoard from './Components/BigBoard';
-import Header from './Components/Header';
+import BigBoard from './Components/BigBoard/BigBoard';
+import Header from './Components/Header/Header';
 
 function App() {
   return (

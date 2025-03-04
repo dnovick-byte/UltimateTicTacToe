@@ -1,26 +1,42 @@
+@import '../../vars.css';
+
+
 .grid-item {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100%; /* Ensures the board is square */
-    height: 100%;  
+    height: 100%; 
 }
 
-/* Make the mini-board slightly faded when there's a winner */
-.mini-board.faded {
+.grid-item:hover .mini-board {
+    opacity: 1; /* Full opacity */
+    z-index: 3; /* Bring mini-board to the front */
+    transition: opacity 0.3s ease, z-index 0s linear 0.3s; /* Smooth transition */
+}
+
+/* Hover effect to overlay mini-board over the winner image */
+.grid-item:hover .winner {
+    opacity: 0.9; /* Slight fade for winner image when hovered */
+    z-index: 3; /* Bring winner image behind the mini-board */
+}
+
+.mini-board-container {
+    height: 100%;
+    position: relative; /* Needed to position elements inside it */
+}
+/* Show the mini-board and add opacity when the container is hovered */
+.mini-board-container:hover .mini-board-winner {
+    opacity: 0.7; /* Set desired opacity when hovering */
+}
+
+.winner {
     width: 100%; /* Ensures the board is square */
     height: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    background: white;
-    aspect-ratio: 1 / 1; /* Keeps each mini-board square */
+    display: flex;
     border: 2px solid var(--color-accent);
     box-sizing: border-box; /* Includes the border in the element’s total size */
-    opacity: .2;
-    z-index: 4;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
 }
+
 .mini-board {
     width: 100%; /* Ensures the board is square */
     height: 100%;
@@ -33,13 +49,20 @@
     box-sizing: border-box; /* Includes the border in the element’s total size */
 }
 
-.winner {
-    display: grid;
-    box-sizing: border-box; /* Includes the border in the element’s total size */
-    place-items: center; /* Centers horizontally */
-    position: absolute;
-    border: 2px solid var(--color-accent);
+.mini-board-winner {
+    width: 100%; /* Ensures the board is square */
     height: 100%;
-    width: 100%;
-
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background: white;
+    aspect-ratio: 1 / 1; /* Keeps each mini-board square */
+    border: 2px solid var(--color-accent);
+    box-sizing: border-box; /* Includes the border in the element’s total size */
+    opacity: 0; /* Make the mini board invisible by default */
+    transition: opacity 0.3s ease-in-out; /* Smooth opacity transition */
+    position: absolute; /* Position it over the winner */
+    top: 0;
+    left: 0;
+    z-index: 1; /* Keeps it in front of the winner */
 }

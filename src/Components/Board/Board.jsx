@@ -4,7 +4,7 @@ import "./Board.css";
 import lion from '../../Assets/lion.png';
 import tiger from '../../Assets/tiger.png';
 
-function Board({ index, onWin, shouldReset, turn, flipTurn, screenShot }) {
+function Board({ index, onWin, shouldReset, turn, flipTurn }) {
 
     function checkWinner(squares) { // takes grid array of 9 elements, returns winner if there is a winner for tictactoe, null otherwise
         for (const[a,b,c] of winners) {
@@ -48,12 +48,23 @@ function Board({ index, onWin, shouldReset, turn, flipTurn, screenShot }) {
         }
     }, [shouldReset]);
     
-    /*return (
+    return (
         <div className="grid-item">
             { winner ? (
-                <div className="winner">
-                    {<img src={winner === 'X' ? lion : tiger} alt="winner"/> }
-                </div> 
+                <div className="mini-board-container">
+                    <div className="winner">
+                        {<img src={winner === 'X' ? lion : tiger} alt="winner"/> }
+                    </div> 
+                    <div className="mini-board-winner">
+                        {squares.map((value, index) => (
+                            <Square
+                                key={index} 
+                                value={value} 
+                                onClick={() => handleClick(index)} 
+                            />
+                        ))} 
+                    </div>
+                </div>
             ) : (
                 <div className="mini-board">
                     {squares.map((value, index) => (
@@ -66,81 +77,7 @@ function Board({ index, onWin, shouldReset, turn, flipTurn, screenShot }) {
                 </div>
             )}
         </div>
-    );*/
-
-
-    return (
-        <div className="grid-item">
-      {/*      {screenShot && (
-                <div className={`mini-board.faded"}`}>
-                    {squares.map((value, index) => (
-                        <Square
-                            key={index} 
-                            value={value} 
-                            onClick={() => handleClick(index)} 
-                        />
-                    ))} 
-                </div>               
-            )} */}
-
-            <div className="grid-item">
-                
-{/* start */}
-
-    {screenShot ? (
-            <div>
-                <div className="mini-board faded">
-                    {squares.map((value, index) => (
-                        <Square
-                            key={index} 
-                            value={value} 
-                            onClick={() => handleClick(index)} 
-                        />
-                    ))} 
-                </div>
-                {winner &&   
-                    <div className="winner-overlay-ss">
-                        <img src={winner === 'X' ? lion : tiger} alt="winner" className="winner-image"/>
-                    </div>
-                }
-            </div>
-            
-        ) : (
-                <div className="mini-board">
-                    {squares.map((value, index) => (
-                        <Square
-                            key={index} 
-                            value={value} 
-                            onClick={() => handleClick(index)} 
-                        />
-                    ))} 
-                </div>
-
-    )}
-    {winner &&   
-        <div className="winner-overlay">
-            <img src={winner === 'X' ? lion : tiger} alt="winner" className="winner-image"/>
-        </div>
-    }
-    {/* stop */}
-
-
-        
-
-
-
-        
-
-
-                
-
-          
-        
-
-            </div>
-    </div>
-
-    )
+    );
 }
 
 export default Board;

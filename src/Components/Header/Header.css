@@ -1,18 +1,19 @@
+@import '../../vars.css';
+
+
 .header {
     font-size: 1rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-top: .5%;
     margin-bottom: .5%;
-    width: 30%;
-
 }
 
 .header img {
     width: 25%;
-
 }
+
 
 .title {
     color: var(--color-text);

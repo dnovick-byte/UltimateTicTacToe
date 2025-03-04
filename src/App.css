@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh; /* Full screen height */
+  width: 100vw; /* Full screen width */
+  overflow: hidden; /* Prevents scrolling */
+  background: var(--color-primary);
+}
