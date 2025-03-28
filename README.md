@@ -13,5 +13,7 @@ The first player to win three small boards in a row, column, or diagonal wins th
 
 ## 🛠 Tech Stack  
 Frontend: React (with Hooks & State Management)  
-Styling: TailwindCSS / CSS Modules  
-Other: Framer Motion (for animations), Zustand/Redux (if used for state management)  
+Styling: CSS Modules  
+
+## Demo
+[Check out the live](https://ultimate-tic-tac-toe-three.vercel.app/)
