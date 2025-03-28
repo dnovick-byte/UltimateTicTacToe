@@ -16,4 +16,4 @@ Frontend: React (with Hooks & State Management)
 Styling: CSS Modules  
 
 ## Demo
-[Check out the live](https://ultimate-tic-tac-toe-three.vercel.app/)
+[Check out the live app!](https://ultimate-tic-tac-toe-three.vercel.app/)
